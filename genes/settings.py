@@ -106,16 +106,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': config['redis']['location'],
-	'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-            'PASSWORD': config['redis']['password'],
-        }
-    }
-}
+#CACHES = {
+#    'default': {
+#        'BACKEND': 'django_redis.cache.RedisCache',
+#        'LOCATION': config['redis']['location'],#
+#	'OPTIONS': {
+#            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+#            'PASSWORD': config['redis']['password'],
+#        }
+#    }
+#}
 
 
 # Internationalization
