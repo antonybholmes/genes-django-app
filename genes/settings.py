@@ -13,12 +13,14 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import json
 
+import json
+
 config = json.load(open('settings.json', 'r'))
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-DATA_DIR = 'data'
 
 
 # Quick-start development settings - unsuitable for production
@@ -30,7 +32,7 @@ SECRET_KEY = config['secret_key']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = config['hosts']
+ALLOWED_HOSTS = ['localhost', '52.206.83.98', 'genes']
 
 
 # Application definition
@@ -42,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api'
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +84,7 @@ WSGI_APPLICATION = 'genes.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, DATA_DIR, 'genes.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -109,10 +111,10 @@ AUTH_PASSWORD_VALIDATORS = [
 #CACHES = {
 #    'default': {
 #        'BACKEND': 'django_redis.cache.RedisCache',
-#        'LOCATION': config['redis']['location'],#
+#        'LOCATION': 'redis://52.20.36.165:6379/2',
 #	'OPTIONS': {
 #            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-#            'PASSWORD': config['redis']['password'],
+#            'PASSWORD': 'ahXob9au3hu3fi4su4ci3HouRivu9chi',
 #        }
 #    }
 #}
@@ -138,5 +140,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+DATA_DIR = 'data'
 
 CACHE_TIME_S = 86400
